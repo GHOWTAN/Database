@@ -1,0 +1,25 @@
+1.
+insert into college values('Carnegie Mellon','PA',11500)
+2.
+insert into apply
+select sid,'Carnegie','CS',null
+from student where sid not in (select sid from apply)
+3.
+insert into apply
+select sid,'Carnie Mellon','EE','Y'
+from student where sid in
+(select sid from apply where major = 'EE' and decision = 'N')
+4.
+delete from student
+where sid in
+(select sid from apply group by sid having count(distinct major)>2)
+5.
+delete from apply
+where sid in
+(select sid from apply group by sid having count(distinct major)>2)
+6.
+delete from college where cname not in (select distinct cName from apply where major = 'CS')
+7.
+update apply set decision ='Y', major = 'economics' where cName = 'Carnegie Mellon' and sid in (select sid from student where GPA<3.6);
+8.
+update apply set major ='CSE' where  major = 'EE' and sid in (select sid from student where GPA>=all(select GPA from student where sid in(select sid from apply where major = 'EE')));

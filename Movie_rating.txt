@@ -1,0 +1,20 @@
+Q1
+
+select title from Movie where director='Steven Spielberg'
+
+Q2
+
+select distinct ratingDate, title, stars from Rating, Movie where Rating.mID=Movie.mID and stars > 3 order by stars
+
+Q3
+
+select distinct Movie.mID,title from Movie, Rating where Movie.mID not in (select distinct Movie.mID from Movie, Rating where Movie.mID=Rating.mID)
+Q4
+
+select title, name from Reviewer, Movie, Rating where Movie.mID=Rating.mID and Reviewer.rID=Rating.rID and ratingDate is null
+Q5
+
+select distinct name, title, stars, ratingDate from Movie, Reviewer, Rating where Movie.mID=Rating.mID and Reviewer.rID=Rating.rID order by name,title,stars desc
+Q6
+
+select title,stars,count(*) as id from Movie, Rating where Movie.mID=Rating.mID group by title,stars having count(*)>1

@@ -1,0 +1,36 @@
+1. select * from country;
+2. select name from country;
+3. select name, capital from country;
+4. select name from country ORDER BY name DESC;
+5. select name from country limit 5;
+6. select name from country limit 100;
+7. select name from country order by name;
+8.select * from country where name like '%ia%'
+9.select region, name from country order by region;
+select region, name from country order by name;
+10. select name, population from country order by CAST(population as int);
+11. select name, region from country;
+12. select name from country where name like 'y%';
+13. select name, region from country where region like '%Europe';
+14. select name, continent from country where continent like '%Europe' or continent like '%Asia';
+15.select continent, name, population from country where continent='Europe'
+order by population limit 1;
+16. select lifeexpectancy, name from country where CAST(lifeexpectancy as int) >= 80;
+17. select name, population from country where CAST(population as int)>=5000000
+AND CAST(population as int)<=10000000;
+18. select name, population, continent from country where continent like '%Europe'
+AND CAST(population as int)>=5000000 AND CAST(population as int)<=10000000 order by CAST(population as int) DESC;
+19. select name from country where name like 'A%';
+20. select name, population from country order by CAST(population as int) DESC limit 1;
+21.select name,lifeexpectancy from country where lifeexpectancy not like 'NULL' order by
+CAST(lifeexpectancy as int) limit 1;
+22. select count(CAST(population as int)) from country;
+23. select governmentform, name from country where governmentform like 'Republic%';
+24. select name,indepyear from country where CAST(indepyear as int)>=1975;
+25. select name,indepyear from country where indepyear not like 'NULL' order by
+CAST(indepyear as int) limit 10;
+26. select date(),time();
+27. select strftime('%Y');
+28.
+29.select indepyear, name from country where name = 'Finland';
+30. select name, localname from country where name = localname;
